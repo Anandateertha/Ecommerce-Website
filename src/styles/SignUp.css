@@ -1,0 +1,18 @@
+
+.apply
+{
+    background: hsla(0, 0%, 100%, 0.55);
+    backdrop-filter: blur(30px);
+}
+
+.all
+{
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+.image
+{
+    height: 630px;
+    width: 300px;
+}

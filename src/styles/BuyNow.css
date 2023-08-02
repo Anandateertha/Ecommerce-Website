@@ -1,0 +1,25 @@
+.imgsize
+{
+    width: 250px;
+    height: 200px;
+    margin-left: 20%;
+    margin-top: 10px;
+}
+
+.center
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 65px;
+}
+
+.quantity
+{
+    display: flex;
+}
+
+.q{
+    margin-left: 150px;
+}
