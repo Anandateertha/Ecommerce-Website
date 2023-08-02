@@ -192,8 +192,12 @@ const ProductState = (props) => {
         showAlert("Your order has been placed","success")
     }
 
+    const alertfromlogin=(msg,type)=>{
+        showAlert(msg,type)
+    }
+
     return (
-        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart,alert }}>
+        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart,alert,alertfromlogin }}>
             {props.children}
         </ProductContext.Provider>
     )

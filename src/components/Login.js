@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../styles/Login.css'
 import { Link,useNavigate } from 'react-router-dom'
+import productContext from '../context/products/ProductContext'
 
 const Login = () => {
     const host = 'http://localhost:5000'
@@ -9,6 +10,9 @@ const Login = () => {
         email: "",
         password: ""
     })
+
+    const context = useContext(productContext)
+    const { alertfromlogin } = context
 
     const handleChange = (e) => {
         setcreds({ ...creds, [e.target.name]: e.target.value })
@@ -30,9 +34,11 @@ const Login = () => {
             localStorage.setItem('token',json.authtoken)
             console.log(json.data.user.id)
             navigate('/')
+            alertfromlogin("Login successfull","success")
         }
         else
         {
+            alertfromlogin("Please enter valid credentials","danger")
             navigate('/login')
         }
     }

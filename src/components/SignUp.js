@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../styles/SignUp.css'
 import { Link, useNavigate } from 'react-router-dom'
+import productContext from '../context/products/ProductContext'
 
 const SignUp = () => {
     const host = 'http://localhost:5000'
+    const context = useContext(productContext)
+    const { alertfromlogin } = context
 
     const navigate=useNavigate()
 
@@ -33,10 +36,11 @@ const SignUp = () => {
             navigate('/')
             localStorage.setItem('id',json.data.user.id)
             localStorage.setItem('token',json.authtoken)
-            console.log(json.data.user.id)
+            alertfromlogin("Successfully created your account","success")
         }
         else
         {
+            alertfromlogin("Please enter valid information","danger")
             navigate('/signup')
         }
     }
