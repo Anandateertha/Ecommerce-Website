@@ -11,6 +11,7 @@ const Cart = () => {
 
     useEffect(() => {
         itemsinthecart()
+        document.title=`Hemadri's - Your Cart`
     }, [])
 
     useEffect(() => {

@@ -17,6 +17,7 @@ const Products = () => {
         {
             navigate('/login')
         }
+        document.title=`Hemadri's - Buy Your Snacks Now`
     }, [])
 
 

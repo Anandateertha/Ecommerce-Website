@@ -43,7 +43,7 @@ const Navbar = () => {
                                 <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/" onClick={handleHome}>Home</Link>
                             </li>
                             <li className={`nav-item dropdown `}>
-                                <Link className={`nav-link dropdown-toggle ${admins.includes(localStorage.getItem('adminId')) ? "d-none" : ""}`} to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className={`nav-link dropdown-toggle ${admins.includes(localStorage.getItem('adminId')) ? "" : "d-none"}`} to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Admin Product Operations
                                 </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -59,7 +59,7 @@ const Navbar = () => {
                             <Link className="btn btn-primary mx-2" type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
                             <Link className={`btn btn-primary mx-2  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart</Link>
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />
-                            <button className="btn btn-outline-success" type="submit" onClick={handleSearch}>Search</button>
+                            <button className="btn btn-outline-info" type="submit" onClick={handleSearch}>Search</button>
                             <button onClick={logout} type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Log out</button>
                             <button  type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Your Account</button>
                         </form>

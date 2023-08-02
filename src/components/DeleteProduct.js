@@ -10,7 +10,7 @@ const DeleteProduct = () => {
 
   useEffect(() => {
     getallproducts()
-
+    document.title=`Hemadri's - Delete Product`
   }, [])
 
 

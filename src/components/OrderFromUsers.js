@@ -10,6 +10,7 @@ const OrderFromUsers = () => {
 
     useEffect(() => {
         orderfromcustomers()
+        document.title=`Hemadri's - Orders from Customers`
     }, [])
     return (
         <div className='container row mx-auto font' >

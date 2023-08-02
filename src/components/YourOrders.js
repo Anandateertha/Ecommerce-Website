@@ -9,6 +9,7 @@ const YourOrders = () => {
 
     useEffect(() => {
         yourorders()
+        document.title=`Hemadri's - Your Orders`
     }, [])
     
 

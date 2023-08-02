@@ -28,7 +28,7 @@ const BuyNow = () => {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
-                    "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjRjM2MyYjJhNTA2NWM5NjIwMzQxZjQ3In0sImlhdCI6MTY5MDYwNzEyMn0.hBYy5zClbwmqOVJR2Cze92DZzQH4MGwIn0x_mODkbNc"
+                    "auth-token": localStorage.getItem('token')
                 }
             })
             const json = await response.json()
@@ -38,9 +38,11 @@ const BuyNow = () => {
                 price: json.price,
                 image: json.image
             })
+            document.title=`Hemadri's - ${json.title}`
         }
         console.log(fetchedProduct)
         fetchproductbyid(id)
+        
     }, []);
 
     const handleQuantity = (sign) => {

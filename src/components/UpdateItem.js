@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const UpdateItem = (props) => {
     const { product,updatingProduct } = props
-
+    document.title=`Hemadri's - Update Product`
     return (
         <>
             <div className="col-md-3 my-3 font">
