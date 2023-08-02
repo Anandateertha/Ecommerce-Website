@@ -12,7 +12,7 @@ const Navbar = () => {
     }
 
     const context = useContext(productContext)
-    const { getallproducts } = context
+    const { getallproducts,admins } = context
 
     const handleSearch = async (e) => {
         e.preventDefault()
@@ -43,7 +43,7 @@ const Navbar = () => {
                                 <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/" onClick={handleHome}>Home</Link>
                             </li>
                             <li className={`nav-item dropdown `}>
-                                <Link className={`nav-link dropdown-toggle ${localStorage.getItem('adminId') !== "64c3c2b2a5065c9620341f47" ? "d-none" : ""}`} to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className={`nav-link dropdown-toggle ${admins.includes(localStorage.getItem('adminId')) ? "d-none" : ""}`} to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Admin Product Operations
                                 </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
