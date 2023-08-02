@@ -25,15 +25,25 @@ const ProductState = (props) => {
         }, 1500);
     }
 
-    const getallproducts = async () => {
+    const getallproducts = async (search) => {
 
-        const response = await fetch(`${host}/api/product/fetchallproducts`, {
-            method: "GET",
-            headers: {
-                "auth-token": localStorage.getItem('token')
-            }
-        })
-
+        let response;
+        if (search) {
+             response = await fetch(`${host}/api/product/fetchbyname/${search}`, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+        }
+        else {
+             response = await fetch(`${host}/api/product/fetchallproducts`, {
+                method: "GET",
+                headers: {
+                    "auth-token": localStorage.getItem('token')
+                }
+            })
+        }
         const json = await response.json()
         setproducts(json)
         console.log(products)
@@ -51,7 +61,7 @@ const ProductState = (props) => {
 
         const addedProduct = await response.json()
         setproducts(products.concat(addedProduct))
-        showAlert("Product has been Added Successfully","success")
+        showAlert("Product has been Added Successfully", "success")
     }
 
     const deleteproduct = async (id) => {
@@ -69,7 +79,7 @@ const ProductState = (props) => {
             product._id !== id
         )
         setproducts(newProducts)
-        showAlert("Product has been Deleted Successfully","success")
+        showAlert("Product has been Deleted Successfully", "success")
     }
 
     const updateproduct = async (id, title, description, price, image) => {
@@ -99,7 +109,7 @@ const ProductState = (props) => {
 
         }
         setproducts(updatedProduct)
-        showAlert("Product has been Updated Successfully","success")
+        showAlert("Product has been Updated Successfully", "success")
     }
 
     const userOrders = async (id, quantity) => {
@@ -148,7 +158,7 @@ const ProductState = (props) => {
             },
             body: JSON.stringify({ quantity })
         })
-        showAlert("Item has been Added to the Cart","success")
+        showAlert("Item has been Added to the Cart", "success")
     }
 
     const [cartitems, setcartitems] = useState([])
@@ -175,7 +185,7 @@ const ProductState = (props) => {
             cartitem._id !== id
         )
         setcartitems(newCart)
-        showAlert("Item has been removed from the cart Successfully","success")
+        showAlert("Item has been removed from the cart Successfully", "success")
     }
 
 
@@ -189,15 +199,17 @@ const ProductState = (props) => {
         })
         const json = await response.json()
         setlistoforders(listoforders.concat(json))
-        showAlert("Your order has been placed","success")
+        showAlert("Your order has been placed", "success")
     }
 
-    const alertfromlogin=(msg,type)=>{
-        showAlert(msg,type)
+    const alertfromlogin = (msg, type) => {
+        showAlert(msg, type)
     }
+
+
 
     return (
-        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart,alert,alertfromlogin }}>
+        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin }}>
             {props.children}
         </ProductContext.Provider>
     )

@@ -25,18 +25,18 @@ router.post('/addproduct', fetchuser, [
     body('title', 'Enter a Valid Title name').isLength({ min: 3 }),
     body('description', 'Enter a valid description of minimun 5 characters').isLength({ min: 5 }),
     body('price', 'Enter a valid price').exists(),
-    body('image','Enter a valid Image')
+    body('image', 'Enter a valid Image')
 ], async (req, res) => {
 
     try {
-        const { title, description, price,image } = req.body
+        const { title, description, price, image } = req.body
         const errors = validationResult(req)
         if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() })
         }
 
         const product = new Product({
-            title, description, price,image
+            title, description, price, image
         })
 
         const savedProduct = await product.save()
@@ -73,7 +73,7 @@ router.delete('/deleteproduct/:id', fetchuser, async (req, res) => {
 router.put('/updateproduct/:id', fetchuser, async (req, res) => {
 
     try {
-        const { title, description, price,image } = req.body
+        const { title, description, price, image } = req.body
 
         const newProduct = {}
 
@@ -105,7 +105,7 @@ router.put('/updateproduct/:id', fetchuser, async (req, res) => {
 
 })
 
-//ROUTE 5 : Seraching the Product based on the given id using GET :'/api/product.fetchbyid'
+//ROUTE 5 : Seraching the Product based on the given id using GET :'/api/product/fetchbyid'
 
 router.get('/fetchbyid/:id', fetchuser, async (req, res) => {
 
@@ -119,6 +119,20 @@ router.get('/fetchbyid/:id', fetchuser, async (req, res) => {
 
 })
 
+//ROUTE 6 : Searching a product based on the name given by the user by "GET" : '/api/product/fetchbyname'
+router.get('/fetchbyname/:title', async (req, res) => {
 
+    try {
+        const productbyname = await Product.find({ title: { $regex: new RegExp(req.params.title, 'i') } });
+        if (!productbyname) {
+            res.status(400).send("Not Found")
+        }
+        res.json(productbyname)
+    } catch (error) {
+        console.log(error.message)
+        res.status(500).send('Internal Server Error')
+    }
+
+})
 
 module.exports = router

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react'
 import productContext from '../context/products/ProductContext'
+import { useLocation } from 'react-router-dom'
 
 const Alert = () => {
 
     const context = useContext(productContext)
     const { alert } = context
-
+    const location=useLocation()
 
     return (
         <div style={{ position: 'fixed', top: '55px', width: '100%', zIndex: 1000}}>
@@ -17,3 +18,4 @@ const Alert = () => {
 }
 
 export default Alert
+
