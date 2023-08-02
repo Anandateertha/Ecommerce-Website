@@ -5,6 +5,15 @@ const YourOrderItem = (props) => {
 
     const { order } = props
 
+    function formatDate(inputDate) {
+        const date = new Date(inputDate);
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getFullYear();
+      
+        return `${day} ${month} ${year}`;
+      }
+
     return (
         <div className="col-md-4 my-3 gap">
             {order.cart.length === 0 ?
@@ -16,6 +25,7 @@ const YourOrderItem = (props) => {
                             <p className="card-text"><strong>Description</strong> : {order.description.length >= 50 ? `${order.description.slice(0, 50)}...` : order.description}</p>    
                             <h6 className="card-text">₹{order.price}</h6>
                             <h6 className="card-text">Total Quantity : {order.quantity}</h6>
+                            <h6 className="card-text">Ordered on : {formatDate(order.date)}</h6>
                         </div>
                     </div>
                 </div> :
@@ -31,6 +41,7 @@ const YourOrderItem = (props) => {
                                         <p className="card-text"><strong>Description</strong> : {order.cart[index].description.length >= 50 ? `${order.cart[index].description.slice(0, 50)}...` : order.cart[index].description}</p>
                                         <h6 className="card-text">₹{order.cart[index].price}</h6>
                                         <h6 className="card-text">Total Quantity : {order.cart[index].quantity}</h6>
+                                        <h6 className="card-text">Ordered on : {formatDate(order.date)}</h6>
                                     </div>
                                 </div>
                             ))}

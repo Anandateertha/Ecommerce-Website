@@ -23,6 +23,10 @@ const cartItemSchema = new Schema({
     },
     image:{
         type:String
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 });
 
@@ -58,6 +62,10 @@ const UserorderedSchema = new Schema({
     },
     image:{
         type:String
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 
 })

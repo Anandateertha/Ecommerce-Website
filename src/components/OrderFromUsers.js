@@ -12,7 +12,7 @@ const OrderFromUsers = () => {
         orderfromcustomers()
     }, [])
     return (
-        <div className='container row mx-auto' >
+        <div className='container row mx-auto font' >
             <h2 style={{marginTop:'80px',marginLeft:'75px'}}>Orders from Customers</h2>
             {Array.from({ length: listoforders.length }, (_, index) => (
                 <OderFromUsersItem key={listoforders[index]._id} listoforders={listoforders[index]} />
