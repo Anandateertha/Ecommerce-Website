@@ -14,8 +14,8 @@ const YourOrders = () => {
     
 
     return (
-        <div className='container row mx-auto' >
-            <h2 style={{marginTop:'70px',marginLeft:'75px'}}>Your Orders</h2>
+        <div className='container row mx-auto font' >
+            <h2 style={{marginTop:'70px'}}>Your Orders</h2>
             {ordersfromuser.map((order) => {
                 return <YourOrderItem key={order._id} order={order} />
             })}

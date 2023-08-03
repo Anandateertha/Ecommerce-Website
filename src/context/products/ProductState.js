@@ -26,10 +26,10 @@ const ProductState = (props) => {
     }
 
     const getallproducts = async (search) => {
-
+        
         let response;
         if (search) {
-             response = await fetch(`${host}/api/product/fetchbyname/${search}`, {
+            response = await fetch(`${host}/api/product/fetchbyname/${search}`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json"
@@ -37,15 +37,18 @@ const ProductState = (props) => {
             })
         }
         else {
-             response = await fetch(`${host}/api/product/fetchallproducts`, {
+            response = await fetch(`${host}/api/product/fetchallproducts`, {
                 method: "GET",
                 headers: {
                     "auth-token": localStorage.getItem('token')
                 }
             })
         }
+        
         const json = await response.json()
+       
         setproducts(json)
+       
         console.log(products)
     }
 
@@ -206,12 +209,12 @@ const ProductState = (props) => {
         showAlert(msg, type)
     }
 
-    const admins=['64c3c2b2a5065c9620341f47']
+    const admins = ['64c3c2b2a5065c9620341f47']
 
 
 
     return (
-        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin ,admins}}>
+        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin, admins }}>
             {props.children}
         </ProductContext.Provider>
     )

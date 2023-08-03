@@ -20,7 +20,7 @@ import Alert from './components/Alert';
 import Account from './components/Account';
 
 function App() {
-
+  
 
   return (
     <>
@@ -40,6 +40,7 @@ function App() {
             <Route exact path="/orderfromusers" element={<OrderFromUsers/>} />
             <Route exact path="/cart" element={<Cart/>} />
             <Route exact path="/account" element={<Account/>} />
+
           </Routes>
         </Router>
       </ProductState>

@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import productContext from '../context/products/ProductContext'
 
 const Account = () => {
 
     const host = 'http://localhost:5000'
+    const context = useContext(productContext)
+    const { alertfromlogin } = context
 
     const [accountdetails, setaccountdetails] = useState({
         name: "",
@@ -44,6 +47,8 @@ const Account = () => {
         }
 
         details()
+        document.title=`Hemadri's - Your Account`
+        alertfromlogin("Your Account","success")
 
     }, [])
 
