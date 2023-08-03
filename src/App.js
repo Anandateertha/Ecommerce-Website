@@ -17,6 +17,7 @@ import YourOrders from './components/YourOrders';
 import OrderFromUsers from './components/OrderFromUsers';
 import Cart from './components/Cart';
 import Alert from './components/Alert';
+import Account from './components/Account';
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
             <Route exact path="/yourorders" element={<YourOrders/>} />
             <Route exact path="/orderfromusers" element={<OrderFromUsers/>} />
             <Route exact path="/cart" element={<Cart/>} />
-            
+            <Route exact path="/account" element={<Account/>} />
           </Routes>
         </Router>
       </ProductState>

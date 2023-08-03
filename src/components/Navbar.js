@@ -61,7 +61,7 @@ const Navbar = () => {
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />
                             <button className="btn btn-outline-info" type="submit" onClick={handleSearch}>Search</button>
                             <button onClick={logout} type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Log out</button>
-                            <button  type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Your Account</button>
+                            <Link to="/account" type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Your Account</Link>
                         </form>
                     </div>
                 </div>
