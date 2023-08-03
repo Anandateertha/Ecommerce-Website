@@ -25,11 +25,6 @@ const YourOrderItem = (props) => {
                                     <div className="col-xl-3 col-md-4 d-flex justify-content-center">
                                         <div className="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
                                             <img src={`${order.image}`} className="w-100" alt="Product" />
-                                            <div className="hover-overlay">
-                                                <div className="mask" style={{ backgroundColor: 'rgba(253, 253, 253, 0.15)' }} >
-
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     <div className="col-xl-6 col-md-5 col-sm-7">
@@ -63,17 +58,7 @@ const YourOrderItem = (props) => {
                                     <div className="row g-0">
                                         <div className="col-xl-3 col-md-4">
                                             <div className="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
-                                                <img
-                                                    src={`${order.cart[index].image}`}
-                                                    className="w-100"
-                                                    alt="Product"
-                                                />
-                                                <div className="hover-overlay">
-                                                    <div
-                                                        className="mask"
-                                                        style={{ backgroundColor: 'rgba(253, 253, 253, 0.15)' }}
-                                                    ></div>
-                                                </div>
+                                                <img src={`${order.cart[index].image}`} className="w-100" alt="Product" />
                                             </div>
                                         </div>
                                         <div className="col-xl-6 col-md-8">
