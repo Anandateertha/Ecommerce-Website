@@ -16,14 +16,14 @@ const Home = () => {
                             aria-label="Slide 3"></button>
                     </div>
                     <div className="carousel-inner" style={{ height: '800px', width: '800px', marginTop: '45px' }}>
-                        <div className="carousel-item active" data-bs-interval="1500">
+                        <div className="carousel-item active" data-bs-interval="2000">
                             <img src="https://media.istockphoto.com/id/852192776/photo/namkeen-collection.jpg?b=1&s=612x612&w=0&k=20&c=oZXAK8VA-5Pun_3kE3_HkI5aaabe7t4lZf0G9vrIXFw=" className="d-block w-100" alt="..." style={{height:'500px'}} />
                             <div className="carousel-caption d-none d-md-block">
                                 <h5 style={{ color: 'black' }}>Order Your Snacks Now</h5>
                                 <p style={{ color: 'black' }}>Click on Buy Now to Order</p>
                             </div>
                         </div>
-                        <div className="carousel-item" data-bs-interval="1500">
+                        <div className="carousel-item" data-bs-interval="2000">
                             <img src="https://media.istockphoto.com/id/1169097707/photo/spicy-and-hot-parippu-vada-and-indian-tea.jpg?b=1&s=612x612&w=0&k=20&c=o-OkgdAUXY6rD5K7g-W4M2r5YRl2-NNraVxQlnicFWE=" className="d-block w-100" alt="..." style={{height:'500px'}} />
                             <div className="carousel-caption d-none d-md-block">
                                 <h5>Click Add to Cart to order at a time</h5>
