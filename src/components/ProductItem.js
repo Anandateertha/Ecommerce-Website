@@ -6,7 +6,7 @@ const ProductItem = (props) => {
     const { product } = props
 
     return (
-        <div className="col-md-3 my-1">
+        <div className="col-md-3">
             <div className="card shadow mb-5 bg-body rounded" style={{ width: "18rem" }}>
                 <img src={`${product.image}`} className="card-img-top" alt={`${product.title}`} height='250px' />
                 <div className="card-body">

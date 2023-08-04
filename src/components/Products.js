@@ -23,7 +23,7 @@ const Products = () => {
 
     return (
         <div className='container row mx-auto font' >
-            <h2 className='my-4'>Products Available, Click Buy Now to Order!</h2>
+            <h2 className=''>Products Available, Click Buy Now to Order!</h2>
             {products.length!==0?products.map((product) => {
                 return <ProductItem key={product._id} product={product}/>
             }):"No items found"}

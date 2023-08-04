@@ -1,0 +1,17 @@
+.back
+{
+    background: url('../../public/images/chakli.jpg') no-repeat center/cover;
+    z-index: -1;
+    margin-top: -35px;
+    height: 600px;
+    box-shadow: 0 4px 8px rgba(18, 14, 14, 0.1);
+}
+
+.images
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    z-index: 6;
+}
