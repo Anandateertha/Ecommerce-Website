@@ -5,10 +5,11 @@ import { useNavigate } from 'react-router-dom'
 import '../styles/Products.css'
 
 const Products = () => {
-
+    const host = 'http://localhost:5000'
     const context = useContext(productContext)
     const { products, getallproducts } = context
     const navigate = useNavigate()
+    const [bycondition, setbycondition] = useState([])
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -21,23 +22,46 @@ const Products = () => {
         document.title = `Hemadri's - Buy Your Snacks Now`
     }, [])
 
-
-
-    const handleClick = (condition) => {
+    const handleClick = async (condition) => {
+        const checkboxes = document.querySelectorAll('.btn-check');
+        const response = await fetch(`${host}/api/product/fetchallproducts`, {
+            method: "GET",
+            headers: {
+                "auth-token": localStorage.getItem('token')
+            }
+        })
+        const json = await response.json()
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = false;
+        });
+        if (condition === 'htl') {
+            setbycondition(json.sort((a, b) => b.price - a.price))
+            document.getElementById('btncheck1').checked = true;
+        }
+        else if (condition === 'lth') {
+            setbycondition(json.sort((a, b) => a.price - b.price))
+            document.getElementById('btncheck2').checked = true;
+        }
+        else if (condition === 'atz') {
+            setbycondition(json.sort((a, b) => a.title.localeCompare(b.title)))
+            document.getElementById('btncheck3').checked = true;
+        }
+        else if (condition === 'zta') {
+            setbycondition(json.sort((a, b) => b.title.localeCompare(a.title)))
+            document.getElementById('btncheck4').checked = true;
+        }
+        else {
+            setbycondition(json)
+            document.getElementById('btncheck5').checked = true;
+        }
 
     }
-
-
 
     return (
         <>
             <div className="wrapper">
                 <div className="outer">
                     <h6>Filter Options</h6>
-                    <div className="btn-group column" role="group" aria-label="Basic checkbox toggle button group">
-                        <input type="checkbox" className="btn-check" id="btncheck5" />
-                        <label className="btn btn-outline-primary" htmlFor="btncheck5" onClick={() => handleClick('clear')}>Clear Filter</label>
-                    </div>
                     <div className="btn-group column" role="group" aria-label="Basic checkbox toggle button group">
                         <input type="checkbox" className="btn-check" id="btncheck1" />
                         <label className="btn btn-outline-primary" htmlFor="btncheck1" onClick={() => handleClick('htl')}>High to Low</label>
@@ -54,14 +78,22 @@ const Products = () => {
                         <input type="checkbox" className="btn-check" id="btncheck4" />
                         <label className="btn btn-outline-primary" htmlFor="btncheck4" onClick={() => handleClick('zta')}>Z-A</label>
                     </div>
+                    <div className="btn-group column" role="group" aria-label="Basic checkbox toggle button group">
+                        <input type="checkbox" className="btn-check" id="btncheck5" />
+                        <label className="btn btn-outline-primary" htmlFor="btncheck5" onClick={() => handleClick('clear')}>Clear Filter</label>
+                    </div>
                 </div>
-
-                <div className='container row mx-auto font my-3' >
+                <div className='container row mx-auto font my-3'>
                     <h2>Products Available, Click Buy Now to Order!</h2>
-
-                    {products.length !== 0 ? products.map((product) => {
-                        return <ProductItem key={product._id} product={product} />
-                    }) : "No items found"}
+                    {bycondition.length !== 0
+                        ? bycondition.map((product) => {
+                            return <ProductItem key={product._id} product={product} />;
+                        })
+                        : products.length !== 0
+                            ? products.map((product) => {
+                                return <ProductItem key={product._id} product={product} />;
+                            })
+                            : 'No items found'}
                 </div>
             </div>
         </>

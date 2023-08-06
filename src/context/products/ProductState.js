@@ -46,10 +46,7 @@ const ProductState = (props) => {
         }
 
         const json = await response.json()
-
         setproducts(json)
-
-        // console.log(products)
     }
 
     const addproduct = async (title, description, price, image) => {
@@ -214,7 +211,7 @@ const ProductState = (props) => {
 
 
     return (
-        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin, admins}}>
+        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin, admins }}>
             {props.children}
         </ProductContext.Provider>
     )
