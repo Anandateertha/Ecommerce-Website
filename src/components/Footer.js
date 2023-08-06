@@ -26,6 +26,7 @@ const Footer = () => {
                                     <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">About Us</Link></li>
                                     <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Services</Link></li>
                                     <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Products</Link></li>
+                                    <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Become a Seller</Link></li>
                                 </ul>
                             </div>
 
@@ -34,7 +35,7 @@ const Footer = () => {
                                     <h5>Subscribe to get updates about New Products</h5>
                                     <p>Order your Favourite Snack Now and Stay Tuned.</p>
                                     <div className="d-flex w-100 gap-2">
-                                        <label for="newsletter1" className="visually-hidden">Email address</label>
+                                        <label htmlFor="newsletter1" className="visually-hidden">Email address</label>
                                         <input id="newsletter1" type="text" className="form-control" placeholder="Email address" />
                                         <button className="btn btn-primary" type="button">Subscribe</button>
                                     </div>

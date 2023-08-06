@@ -12,7 +12,7 @@ const Navbar = () => {
     }
 
     const context = useContext(productContext)
-    const { getallproducts,admins } = context
+    const { getallproducts, admins } = context
 
     const handleSearch = async (e) => {
         e.preventDefault()
