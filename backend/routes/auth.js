@@ -132,6 +132,6 @@ router.get('/getuser', fetchuser, async (req, res) => {
 
 
 
-module.exports = {id,name,phone}
+// module.exports = {id,name,phone}
 
 module.exports = router

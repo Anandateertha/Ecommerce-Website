@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import productContext from '../context/products/ProductContext'
 import CartItem from './CartItem'
-import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
@@ -24,12 +23,12 @@ const Cart = () => {
     }
 
     return (
-        <div className='container row mx-auto font' >
-            <h2 style={{ marginTop: '65px', position: 'sticky' }}>Cart Items<p>Total Price :Rs {totalprice}</p></h2>
+        <div className='container row mx-auto font text-center' >
+            <h2 style={{ marginTop: '65px', position: 'sticky' }}>Cart Items<p>Grand Total :Rs {totalprice}</p></h2>
             <button onClick={handlebuyfromCart} type="button" className='btn btn-primary'>Order Now</button>
-            {cartitems.map((cartitem) => {
+            {cartitems.length ? cartitems.map((cartitem) => {
                 return <CartItem key={cartitem._id} cartitem={cartitem} />
-            })}
+            }):"No items to show in the Cart. Please Order Something!"}
         </div>
     )
 }

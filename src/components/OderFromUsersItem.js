@@ -74,7 +74,7 @@ const OderFromUsersItem = (props) => {
                                             <div className="row g-0">
                                                 <div className="col-xl-3 col-md-4">
                                                     <div className="bg-image hover-zoom ripple rounded ripple-surface me-md-3 mb-3 mb-md-0">
-                                                        <img src={`${listoforders.cart[index].image}`} className="w-70" alt="Product" />
+                                                        <img src={`${listoforders.cart[index].image}`} className="w-100" alt="Product" />
                                                     </div>
                                                 </div>
                                                 <div className="col-xl-6 col-md-8">

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
     return (
         <>
-            <div style={{ marginTop: '95px', bottom: '0' }}>
+            <div style={{ bottom: '0' }}>
                 <hr />
                 <div className="container">
                     <footer className="py-5">
@@ -12,9 +12,9 @@ const Footer = () => {
                             <div className="col-3">
                                 <h5>Contact Us</h5>
                                 <ul className="nav flex-column">
-                                    <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Phone : 1800 1256 1236</Link></li>
-                                    <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Email : hemadris@gmail.com</Link></li>
-                                    <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Address : SN Pet Bellari, Karnataka</Link></li>
+                                    <li className="nav-item mb-2">Phone : 1800 1256 1236</li>
+                                    <li className="nav-item mb-2">Email : hemadris@gmail.com</li>
+                                    <li className="nav-item mb-2">Address : SN Pet Bellari, Karnataka</li>
                                     <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Instagram : @hemadri's</Link></li>
                                     <li className="nav-item mb-2"><Link to="/" className="nav-link p-0 text-muted">Facebook : @hemadris</Link></li>
                                 </ul>

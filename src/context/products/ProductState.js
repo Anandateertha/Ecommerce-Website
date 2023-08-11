@@ -206,12 +206,15 @@ const ProductState = (props) => {
         showAlert(msg, type)
     }
 
-    const admins = ['64c3c2b2a5065c9620341f47']
+    const admins = ['64d0b81f79c50c30ab468a2d']
 
-
+    const [cartCount, setcartCount] = useState(0)
+    const numberofitemsincart=()=>{
+        setcartCount(cartitems.length)
+    }
 
     return (
-        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin, admins }}>
+        <ProductContext.Provider value={{ products, getallproducts, addproduct, deleteproduct, updateproduct, userOrders, yourorders, ordersfromuser, orderfromcustomers, listoforders, addingitemtocart, itemsinthecart, cartitems, removeitemfromcart, orderingfromcart, alert, alertfromlogin, admins,numberofitemsincart,cartCount }}>
             {props.children}
         </ProductContext.Provider>
     )

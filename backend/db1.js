@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const mongoURI = 'mongodb://127.0.0.1:27017/ecommerce'
+require('dotenv').config();
+const mongoURI = process.env.REACT_APP_DATABASE
 
 const connectToMongo = async () => {
     try {

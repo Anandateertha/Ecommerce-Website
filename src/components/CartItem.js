@@ -19,7 +19,8 @@ const CartItem = (props) => {
                 <div className="card-body">
                     <h5 className="card-title">{cartitem.title}</h5>
                     <p className="card-text">{cartitem.description.length > 60 ? `${cartitem.description.slice(0, 60)}...` : cartitem.title}</p>
-                    <p className="card-text">₹{cartitem.price}</p>
+                    <p className="card-text">Quantity : {cartitem.quantity}</p>
+                    <p className="card-text">Total Price : ₹{cartitem.price}</p>
                     <Link to={`/cart`} onClick={()=>handleRemoveitemfromcart(cartitem._id)} className="btn btn-primary my-1 mx-2">Remove Item from the Cart</Link>
                 </div>
             </div>

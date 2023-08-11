@@ -7,7 +7,7 @@ import '../styles/Products.css'
 const Products = () => {
     const host = 'http://localhost:5000'
     const context = useContext(productContext)
-    const { products, getallproducts } = context
+    const { products, getallproducts,numberofitemsincart } = context
     const navigate = useNavigate()
     const [bycondition, setbycondition] = useState([])
 
@@ -15,6 +15,7 @@ const Products = () => {
         if (localStorage.getItem('token')) {
             getallproducts()
             // eslint-disable-next-line
+            numberofitemsincart()
         }
         else {
             navigate('/login')
@@ -80,7 +81,7 @@ const Products = () => {
                     </div>
                     <div className="btn-group column" role="group" aria-label="Basic checkbox toggle button group">
                         <input type="checkbox" className="btn-check" id="btncheck5" />
-                        <label className="btn btn-outline-primary" htmlFor="btncheck5" onClick={() => handleClick('clear')}>Clear Filter</label>
+                        <label className="btn btn-outline-primary" htmlFor="btncheck5" onClick={() => handleClick('clear')}>Clear Filters</label>
                     </div>
                 </div>
                 <div className='container row mx-auto font my-3'>

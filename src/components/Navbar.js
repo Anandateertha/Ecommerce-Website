@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import productContext from '../context/products/ProductContext'
 
@@ -12,7 +12,7 @@ const Navbar = () => {
     }
 
     const context = useContext(productContext)
-    const { getallproducts, admins } = context
+    const { getallproducts, admins,cartCount } = context
 
     const handleSearch = async (e) => {
         e.preventDefault()
@@ -29,6 +29,10 @@ const Navbar = () => {
         navigate('/')
     }
 
+    
+
+    
+
     return (
         <div>
             <nav className={`navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-2 fixed-top ${location.pathname === '/login' || location.pathname === '/signup' ? "d-none" : ""} font`}>
@@ -40,10 +44,10 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/" onClick={handleHome}>Home</Link>
+                                <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/" onClick={handleHome}>Products</Link>
                             </li>
                             <li className={`nav-item dropdown `}>
-                                <Link className={`nav-link dropdown-toggle ${admins.includes(localStorage.getItem('adminId')) ? "" : "d-none"}`} to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className={`nav-link dropdown-toggle ${admins.includes(localStorage.getItem('id')) ? "" : "d-none"}`} to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Admin Product Operations
                                 </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -56,8 +60,11 @@ const Navbar = () => {
                             </li>
                         </ul>
                         <form className="d-flex">
-                            <Link className="btn btn-primary mx-2" type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
-                            <Link className={`btn btn-primary mx-2  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart</Link>
+                            <Link className="btn btn-primary mx-2 " type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
+                            <Link className={`btn btn-primary mx-2 position-relative  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {cartCount}
+                                <span class="visually-hidden">unread messages</span>
+                            </span></Link>
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />
                             <button className="btn btn-outline-info" type="submit" onClick={handleSearch}>Search</button>
                             <button onClick={logout} type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Log out</button>
