@@ -1,0 +1,13 @@
+@media screen and (max-width:400px) {
+    .resp
+    {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .items
+    {
+        margin-top: 15px;
+    }
+}

@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import productContext from '../context/products/ProductContext'
-import { useState } from 'react';
+import '../styles/Navbar.css'
 
 const Navbar = () => {
     const location = useLocation()
@@ -30,21 +30,16 @@ const Navbar = () => {
         navigate('/')
     }
 
-
-
-
-
-
     return (
         <div>
-            <nav className={`navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-2 fixed-top ${location.pathname === '/login' || location.pathname === '/signup' ? "d-none" : ""} font`}>
+            <nav className={`navbar navbar-expand-lg navbar-dark bg-dark shadow-lg p-2 fixed-top ${location.pathname === '/login' || location.pathname === '/signup' ? "d-none" : ""} font `}>
                 <div className="container-fluid">
                     <Link className="navbar-brand fst-itali" to="/">Hemadri's</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
                             <li className="nav-item">
                                 <Link className={`nav-link ${location.pathname === '/' ? "active" : ""}`} aria-current="page" to="/" onClick={handleHome}>Products</Link>
                             </li>
@@ -61,16 +56,16 @@ const Navbar = () => {
                                 </ul>
                             </li>
                         </ul>
-                        <form className="d-flex">
-                            <Link className="btn btn-primary mx-2 " type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
-                            <Link className={`btn btn-primary mx-2 position-relative  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        <form className="d-flex resp">
+                            <Link className="btn btn-primary mx-2 items" type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
+                            <Link className={`btn btn-primary items mx-2 position-relative  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 {cartCount}
                                 <span className="visually-hidden">unread messages</span>
                             </span></Link>
-                            <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />
-                            <button className="btn btn-outline-info" type="submit" onClick={handleSearch}>Search</button>
-                            <button onClick={logout} type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Log out</button>
-                            <Link to="/account" type="button" className='btn btn-primary' style={{ width: '246px', marginLeft: '10px' }}>Your Account</Link>
+                            <input className="form-control me-2 items" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />
+                            <button className="btn btn-outline-info items" type="submit" onClick={handleSearch}>Search</button>
+                            <button onClick={logout} type="button" className='btn btn-primary items' style={{ width: '246px', marginLeft: '10px' }}>Log out</button>
+                            <Link to="/account" type="button" className='btn btn-primary items' style={{ width: '246px', marginLeft: '10px' }}>Your Account</Link>
                         </form>
                     </div>
                 </div>

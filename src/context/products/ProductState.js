@@ -134,7 +134,7 @@ const ProductState = (props) => {
             }
         })
         const json = await response.json()
-        setordersfromuser(json)
+        setordersfromuser(json.sort((a,b)=>new Date(b.date) - new Date(a.date)))
     }
     const [listoforders, setlistoforders] = useState([])
 
