@@ -1,6 +1,7 @@
-import React, { useContext} from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import productContext from '../context/products/ProductContext'
+import { useState } from 'react';
 
 const Navbar = () => {
     const location = useLocation()
@@ -12,7 +13,7 @@ const Navbar = () => {
     }
 
     const context = useContext(productContext)
-    const { getallproducts, admins,cartCount } = context
+    const { getallproducts, admins, cartCount } = context
 
     const handleSearch = async (e) => {
         e.preventDefault()
@@ -29,9 +30,10 @@ const Navbar = () => {
         navigate('/')
     }
 
-    
 
-    
+
+
+
 
     return (
         <div>
@@ -61,9 +63,9 @@ const Navbar = () => {
                         </ul>
                         <form className="d-flex">
                             <Link className="btn btn-primary mx-2 " type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
-                            <Link className={`btn btn-primary mx-2 position-relative  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <Link className={`btn btn-primary mx-2 position-relative  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 {cartCount}
-                                <span class="visually-hidden">unread messages</span>
+                                <span className="visually-hidden">unread messages</span>
                             </span></Link>
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />
                             <button className="btn btn-outline-info" type="submit" onClick={handleSearch}>Search</button>

@@ -12,6 +12,8 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/product',require('./routes/product'))
 app.use('/api/orderproduct',require('./routes/orderproduct'))
 
+app.use('/api/payment',require('./routes/payment'))
+
 
 
 app.listen(port, () => {

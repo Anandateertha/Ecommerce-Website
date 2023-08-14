@@ -32,7 +32,6 @@ const Login = () => {
         if (json.success) {
             localStorage.setItem('adminId',json.data.user.id)
             localStorage.setItem('token',json.authtoken)
-            console.log('Admin Id is 64c3c2b2a5065c9620341f47')
             console.log(`Id is ${json.data.user.id}`)
             navigate('/')
             alertfromlogin("Login successfull","success")
