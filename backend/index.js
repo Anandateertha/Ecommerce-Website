@@ -17,5 +17,5 @@ app.use('/api/payment',require('./routes/payment'))
 
 
 app.listen(port, () => {
-    console.log(`Example app listening on port http://localhost:${port}`)
+    console.log(`Hemadri's is live on port http://localhost:${port}`)
 })

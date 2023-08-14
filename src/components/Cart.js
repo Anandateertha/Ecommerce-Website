@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 const Cart = () => {
 
     const context = useContext(productContext)
-    const { itemsinthecart, cartitems,orderingfromcart } = context
+    const { itemsinthecart, cartitems,orderingfromcart,alertfromlogin } = context
     const [totalprice, settotalprice] = useState(null)
     const navigate=useNavigate()
     const host = 'http://localhost:5000'
@@ -51,6 +51,7 @@ const Cart = () => {
                     const json = await responses.json()
                     if (json.success) {
                         orderingfromcart()
+                        alertfromlogin("Payment Successfull and your order for items in the cart is placed ","success")
                         console.log('Payment verification successful');
                         navigate('/')
                     }

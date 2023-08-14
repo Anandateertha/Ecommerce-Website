@@ -199,7 +199,6 @@ const ProductState = (props) => {
         })
         const json = await response.json()
         setlistoforders(listoforders.concat(json))
-        showAlert("Your order has been placed", "success")
     }
 
     const alertfromlogin = (msg, type) => {

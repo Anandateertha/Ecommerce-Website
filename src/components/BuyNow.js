@@ -8,7 +8,7 @@ const BuyNow = () => {
     const { id } = useParams();
     const navigate = useNavigate()
     const context = useContext(productContext)
-    const { userOrders, addingitemtocart } = context
+    const { userOrders, addingitemtocart,alertfromlogin } = context
 
     const [fetchedProduct, setfetchedProduct] = useState({
         title: "",
@@ -85,6 +85,7 @@ const BuyNow = () => {
                     const json = await responses.json()
                     if (json.success) {
                         userOrders(id, q);
+                        alertfromlogin("Payment Successfull and Your Order is placed","success")
                         console.log('Payment verification successful');
                         navigate('/')
                     }
