@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/Footer.css'
 
 const Footer = () => {
     return (
         <>
-            <div style={{ bottom: '0' }}>
+            <div className='foot'>
                 <hr />
                 <div className="container">
                     <footer className="py-5">
@@ -43,7 +44,7 @@ const Footer = () => {
                             </div>
                         </div>
 
-                        <div className="d-flex justify-content-between py-4 my-4 border-top">
+                        <div className="d-flex justify-content-between py-4 my-4">
                             <p>&copy; 2023 Company, Inc. All rights reserved.</p>
                         </div>
                     </footer>

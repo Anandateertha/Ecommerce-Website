@@ -1,20 +1,13 @@
 import React from 'react'
 import Products from './Products'
 import '../styles/Home.css'
+import Footer from './Footer';
 
 const Home = () => {
     return (
         <>
             <div className='back font'>
                 <div id="carouselExampleCaptions" className="carousel slide images" data-bs-ride="carousel" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-                    <div className="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
                     <div className="carousel-inner" style={{ height: 'max-content', width: '800px', marginTop: '-145px' }}>
                         <div className="carousel-item active" data-bs-interval="1500">
                             <img src="https://cdn.tasteatlas.com//Images/Dishes/c16962366c9745e9b8cf4f17f3532a2e.jpg?w=905&h=510" className="d-block w-100" alt="Chakli" style={{ height: '500px' }} />
@@ -35,6 +28,9 @@ const Home = () => {
             </div>
             <div>
                 <Products />
+            </div>
+            <div>
+                <Footer />
             </div>
         </>
     )

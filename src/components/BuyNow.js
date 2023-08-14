@@ -149,7 +149,7 @@ const BuyNow = () => {
 
     return (
         <>
-            <div className='center '>
+            <div className='center'>
                 <div className='card mb-3 shadow rounded' style={{ width: '30rem' }}>
                     <img src={fetchedProduct.image} className='card-img-top imgsize' alt={fetchedProduct.title} />
                     <div className='card-body'>

@@ -18,17 +18,16 @@ import OrderFromUsers from './components/OrderFromUsers';
 import Cart from './components/Cart';
 import Alert from './components/Alert';
 import Account from './components/Account';
-import Footer from './components/Footer';
 
 function App() {
-  
+
 
   return (
     <>
       <ProductState>
         <Router>
           <Navbar />
-          <Alert/>
+          <Alert />
           <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/addproduct' element={<AddProduct />} />
@@ -37,12 +36,11 @@ function App() {
             <Route exact path="/buynow/:id" element={<BuyNow />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/yourorders" element={<YourOrders/>} />
-            <Route exact path="/orderfromusers" element={<OrderFromUsers/>} />
-            <Route exact path="/cart" element={<Cart/>} />
-            <Route exact path="/account" element={<Account/>} />
+            <Route exact path="/yourorders" element={<YourOrders />} />
+            <Route exact path="/orderfromusers" element={<OrderFromUsers />} />
+            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/account" element={<Account />} />
           </Routes>
-          <Footer/>
         </Router>
       </ProductState>
     </>
