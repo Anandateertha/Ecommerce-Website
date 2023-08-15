@@ -16,3 +16,19 @@
     height: 630px;
     width: 300px;
 }
+
+@media screen and (max-width:664px) {
+    .sign
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        width: 644px;
+        margin-left: -134px;
+    }
+    .image
+    {
+        visibility: hidden;
+        display: none;
+    }
+}

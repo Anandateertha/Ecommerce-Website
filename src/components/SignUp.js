@@ -47,7 +47,7 @@ const SignUp = () => {
 
 
     return (
-        <div>
+        <div className='sign'>
             <section className="text-center text-lg-start all">
                 <div className="container py-4">
                     <div className="row g-0 align-items-center">
