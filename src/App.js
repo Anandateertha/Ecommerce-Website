@@ -19,6 +19,8 @@ import Cart from './components/Cart';
 import Alert from './components/Alert';
 import Account from './components/Account';
 import ReactGA from "react-ga4";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const TRACKING_ID=process.env.MEASUREMENT//Comment this line out when you are running on localhost
 ReactGA.initialize(TRACKING_ID);//Comment this line out when you are running on localhost
@@ -29,6 +31,7 @@ function App() {
       <ProductState>
         <Router>
           <Navbar />
+          <ToastContainer />
           <Alert />
           <Routes>
             <Route exact path='/' element={<Home />} />

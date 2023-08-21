@@ -1,5 +1,7 @@
 import ProductContext from './ProductContext'
 import { useState } from 'react'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProductState = (props) => {
 
@@ -61,7 +63,11 @@ const ProductState = (props) => {
 
         const addedProduct = await response.json()
         setproducts(products.concat(addedProduct))
-        showAlert("Product has been Added Successfully", "success")
+        // showAlert("Product has been Added Successfully", "success")
+        toast.success('Product has been Added Successfully', {
+            position: 'top-right',
+            autoClose: 5000,
+        });
     }
 
     const deleteproduct = async (id) => {
@@ -79,7 +85,11 @@ const ProductState = (props) => {
             product._id !== id
         )
         setproducts(newProducts)
-        showAlert("Product has been Deleted Successfully", "success")
+        // showAlert("Product has been Deleted Successfully", "success")
+        toast.success('Product has been Deleted Successfully', {
+            position: 'top-right',
+            autoClose: 5000,
+        });
     }
 
     const updateproduct = async (id, title, description, price, image) => {
@@ -109,7 +119,11 @@ const ProductState = (props) => {
 
         }
         setproducts(updatedProduct)
-        showAlert("Product has been Updated Successfully", "success")
+        // showAlert("Product has been Updated Successfully", "success")
+        toast.success('Product has been Updated Successfully', {
+            position: 'top-right',
+            autoClose: 5000,
+        });
     }
 
     const userOrders = async (id, quantity) => {
@@ -158,7 +172,11 @@ const ProductState = (props) => {
             },
             body: JSON.stringify({ quantity })
         })
-        showAlert("Item has been Added to the Cart", "success")
+        // showAlert("Item has been Added to the Cart", "success")
+        toast.success('Item has been Added to the Cart', {
+            position: 'top-right',
+            autoClose: 5000,
+        });
     }
 
     const [cartitems, setcartitems] = useState([])
@@ -185,7 +203,11 @@ const ProductState = (props) => {
             cartitem._id !== id
         )
         setcartitems(newCart)
-        showAlert("Item has been removed from the cart Successfully", "success")
+        // showAlert("Item has been removed from the cart Successfully", "success")
+        toast.error('Item has been removed from the cart Successfully', {
+            position: 'top-right',
+            autoClose: 3000,
+        });
     }
 
 
@@ -202,10 +224,14 @@ const ProductState = (props) => {
     }
 
     const alertfromlogin = (msg, type) => {
-        showAlert(msg, type)
+        // showAlert(msg, type)
+        toast.success(`${msg}`, {
+            position: 'top-right',
+            autoClose: 5000,
+        });
     }
 
-    const admins = ['64d0b7fc79c50c30ab468a2a']
+    const admins = ["admin Id's"]//Enter the Id of the Admin to get access to the Product Operations
 
     const [cartCount, setcartCount] = useState(0)
     const numberofitemsincart=()=>{

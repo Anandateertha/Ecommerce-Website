@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import productContext from '../context/products/ProductContext';
 import '../styles/BuyNow.css';
 import ReactGA from "react-ga4";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const BuyNow = () => {
     const host = 'http://localhost:5000'
@@ -88,7 +90,11 @@ const BuyNow = () => {
                     const json = await responses.json()
                     if (json.success) {
                         userOrders(id, q);
-                        alertfromlogin("Payment Successfull and Your Order is placed", "success")
+                        // alertfromlogin("Payment Successfull and Your Order is placed", "success")
+                        toast.success('Payment Successfull and Your Order is placed', {
+                            position: 'top-right',
+                            autoClose: 5000,
+                        });
                         ReactGA.event({
                             category: fetchedProduct.title,
                             action: "Ordered Successfully",
@@ -96,6 +102,13 @@ const BuyNow = () => {
                             value: fetchedProduct.price
                         });
                         navigate('/')
+                    }
+                    else
+                    {
+                        toast.error('Payment UnSuccessfull', {
+                            position: 'top-right',
+                            autoClose: 5000,
+                        });
                     }
                 } catch (error) {
                     console.error('Error during payment verification:', error);
