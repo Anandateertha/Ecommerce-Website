@@ -30,9 +30,8 @@ const Login = () => {
         const json=await response.json()
 
         if (json.success) {
-            localStorage.setItem('adminId',json.data.user.id)
+            localStorage.setItem('id',json.data.user.id)
             localStorage.setItem('token',json.authtoken)
-            console.log(`Id is ${json.data.user.id}`)
             navigate('/')
             alertfromlogin("Login successfull","success")
         }

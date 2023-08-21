@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import productContext from '../context/products/ProductContext'
 import CartItem from './CartItem'
 import { useNavigate } from 'react-router-dom'
+import ReactGA from "react-ga4";
 
 const Cart = () => {
 
@@ -52,14 +53,18 @@ const Cart = () => {
                     if (json.success) {
                         orderingfromcart()
                         alertfromlogin("Payment Successfull and your order for items in the cart is placed ","success")
-                        console.log('Payment verification successful');
+                        ReactGA.event({
+                            category: 'Cart',
+                            action: "Ordered Successfully from the Cart",
+                            label: "Clicked on Order now for payment"
+                        });
                         navigate('/')
                     }
                     else {
-                        console.log('Payment verification failed');
+                        alertfromlogin("Payment Failed ","danger")
                     }
                 } catch (error) {
-                    console.error('Error during payment verification:', error);
+                    alertfromlogin("Error during payment verification, Try again","danger")
                 }
 
 
@@ -86,10 +91,12 @@ const Cart = () => {
             if (json.success) {
                 handleRazorpayOpen(json.order, json.user);
             } else {
-                console.log('Failed to initiate payment');
+                // console.log('Failed to initiate payment');
+                alertfromlogin("Error during intialting a payment, Please try again","danger")
             }
         } catch (error) {
-            console.error('Error during payment initiation:', error);
+            // console.error('Error during payment initiation:', error);
+            alertfromlogin("Error during payment initiation, Please Try again","danger")
             navigate(`/cart`);
         }
         

@@ -94,7 +94,6 @@ router.post('/orderfromcart', fetchuser, async (req, res) => {
         const savedProduct = await orderCart.save()
 
         res.json(savedProduct)
-        // await CartItem.deleteMany({})
         await CartItem.deleteMany({id: req.user.id });
     } catch (error) {
         console.log(error.message)

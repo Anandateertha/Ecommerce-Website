@@ -23,3 +23,11 @@
 .q{
     margin-left: 150px;
 }
+
+@media screen and (max-width:450px) {
+    .center
+    {
+        width: 450px;
+        padding: 20px;
+    }
+}

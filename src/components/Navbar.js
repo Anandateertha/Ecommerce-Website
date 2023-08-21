@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import productContext from '../context/products/ProductContext'
 import '../styles/Navbar.css'
+import ReactGA from "react-ga4";
 
 const Navbar = () => {
     const location = useLocation()
@@ -9,7 +10,12 @@ const Navbar = () => {
     const logout = () => {
         localStorage.removeItem('token')
         navigate('/login')
-        console.log(localStorage.getItem('token'))
+        // console.log(localStorage.getItem('token'))
+        ReactGA.event({
+            category: "Logging out",
+            action: "Click",
+            label: "Clicked on Log out",
+        });
     }
 
     const context = useContext(productContext)
@@ -20,6 +26,11 @@ const Navbar = () => {
         let search = document.getElementById('search')
         const value = search.value
         getallproducts(value)
+        ReactGA.event({
+            category: value,
+            action: "Click on Search",
+            label: "Searching a product"
+        });
     }
 
     const handleHome = (e) => {

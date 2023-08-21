@@ -3,6 +3,7 @@ import ProductItem from './ProductItem'
 import productContext from '../context/products/ProductContext'
 import { Link, useNavigate } from 'react-router-dom'
 import '../styles/Products.css'
+import ReactGA from "react-ga4";
 
 const Products = () => {
     const host = 'http://localhost:5000'
@@ -16,6 +17,7 @@ const Products = () => {
             getallproducts()
             // eslint-disable-next-line
             numberofitemsincart()
+            ReactGA.send({ hitType: "pageview", page: "/", title: "Products Page" });
         }
         else {
             navigate('/login')
@@ -92,23 +94,22 @@ const Products = () => {
                         : products.length !== 0 ? products.map((product) => {
                             return <ProductItem key={product._id} product={product} />;
                         })
-                            : <div class="card" aria-hidden="true">
-                                {/* <img src="..." class="card-img-top" alt="..." /> */}
-                                <div class="card-body">
-                                    <h5 class="card-title placeholder-glow">
-                                        <span class="placeholder col-6"></span>
+                            : <div className="card" aria-hidden="true">
+                                <div className="card-body">
+                                    <h5 className="card-title placeholder-glow">
+                                        <span className="placeholder col-6"></span>
                                     </h5>
-                                    <p class="card-text placeholder-glow">
-                                        <span class="placeholder col-7"></span>
-                                        <span class="placeholder col-4"></span>
-                                        <span class="placeholder col-4"></span>
-                                        <span class="placeholder col-6"></span>
-                                        <span class="placeholder col-8"></span>
-                                        <span class="placeholder col-4"></span>
-                                        <span class="placeholder col-6"></span>
-                                        <span class="placeholder col-8"></span>
+                                    <p className="card-text placeholder-glow">
+                                        <span className="placeholder col-7"></span>
+                                        <span className="placeholder col-4"></span>
+                                        <span className="placeholder col-4"></span>
+                                        <span className="placeholder col-6"></span>
+                                        <span className="placeholder col-8"></span>
+                                        <span className="placeholder col-4"></span>
+                                        <span className="placeholder col-6"></span>
+                                        <span className="placeholder col-8"></span>
                                     </p>
-                                    <Link to="/" tabIndex="-1" class="btn btn-primary disabled placeholder col-6"></Link>
+                                    <Link to="/" tabIndex="-1" className="btn btn-primary disabled placeholder col-6"></Link>
                                 </div>
                             </div>}
                 </div>

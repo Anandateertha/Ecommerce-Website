@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import productContext from '../context/products/ProductContext';
 import '../styles/BuyNow.css';
+import ReactGA from "react-ga4";
 
 const BuyNow = () => {
     const host = 'http://localhost:5000'
     const { id } = useParams();
     const navigate = useNavigate()
     const context = useContext(productContext)
-    const { userOrders, addingitemtocart,alertfromlogin } = context
+    const { userOrders, addingitemtocart, alertfromlogin } = context
 
     const [fetchedProduct, setfetchedProduct] = useState({
         title: "",
@@ -20,6 +21,7 @@ const BuyNow = () => {
     const [q, setq] = useState(0)
     const [p, setp] = useState(fetchedProduct.price)
 
+    const [loading, setloading] = useState(false)
 
 
     useEffect(() => {
@@ -38,6 +40,7 @@ const BuyNow = () => {
                 price: json.price,
                 image: json.image
             })
+            setloading(true)
             document.title = `Hemadri's - ${json.title}`
         }
         fetchproductbyid(id)
@@ -72,7 +75,7 @@ const BuyNow = () => {
                 address: "Hemadri's at Bellari"
             },
             handler: async function (response) {
-                console.log(response)
+
                 try {
                     const responses = await fetch(`${host}/api/payment/verify`, {
                         method: 'POST',
@@ -85,12 +88,14 @@ const BuyNow = () => {
                     const json = await responses.json()
                     if (json.success) {
                         userOrders(id, q);
-                        alertfromlogin("Payment Successfull and Your Order is placed","success")
-                        console.log('Payment verification successful');
+                        alertfromlogin("Payment Successfull and Your Order is placed", "success")
+                        ReactGA.event({
+                            category: fetchedProduct.title,
+                            action: "Ordered Successfully",
+                            label: "Clicked on Buy Now for payment",
+                            value: fetchedProduct.price
+                        });
                         navigate('/')
-                    }
-                    else {
-                        console.log('Payment verification failed');
                     }
                 } catch (error) {
                     console.error('Error during payment verification:', error);
@@ -150,7 +155,7 @@ const BuyNow = () => {
     return (
         <>
             <div className='center'>
-                <div className='card mb-3 shadow rounded' style={{ width: '30rem' }}>
+                {loading ? <div className='card mb-3 shadow rounded' style={{ width: '30rem' }}>
                     <img src={fetchedProduct.image} className='card-img-top imgsize' alt={fetchedProduct.title} />
                     <div className='card-body'>
                         <h6 className='card-title'>{fetchedProduct.title}</h6>
@@ -165,7 +170,34 @@ const BuyNow = () => {
                     </div>
                     <input onClick={() => handleBuy(id)} disabled={q < 1 ? true : false} className="btn btn-primary my-1" type="submit" value="Buy Now" />
                     <input onClick={() => handleCart(id)} disabled={q < 1 ? true : false} className="btn btn-primary my-1" type="submit" value="Add to Cart" />
-                </div>
+                </div> : <div className="card" aria-hidden="true" style={{ width: "420px", height: '500px' }}>
+                    <div className="card-body">
+                        <h5 className="card-title placeholder-glow">
+                            <span className="placeholder col-6"></span>
+                        </h5>
+                        <p className="card-text placeholder-glow">
+                            <span className="placeholder col-7"></span>
+                            <span className="placeholder col-4"></span>
+                            <span className="placeholder col-4"></span>
+                            <span className="placeholder col-6"></span>
+                            <span className="placeholder col-8"></span>
+                        </p>
+                        <a href="#" tabIndex="-1" className="btn btn-primary disabled placeholder col-6"></a>
+                    </div>
+                    <div className="card-body">
+                        <h5 className="card-title placeholder-glow">
+                            <span className="placeholder col-6"></span>
+                        </h5>
+                        <p className="card-text placeholder-glow">
+                            <span className="placeholder col-7"></span>
+                            <span className="placeholder col-4"></span>
+                            <span className="placeholder col-4"></span>
+                            <span className="placeholder col-6"></span>
+                            <span className="placeholder col-8"></span>
+                        </p>
+                        <a href="#" tabIndex="-1" className="btn btn-primary disabled placeholder col-6"></a>
+                    </div>
+                </div>}
             </div>
         </>
     );

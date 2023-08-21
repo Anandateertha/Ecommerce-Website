@@ -205,7 +205,7 @@ const ProductState = (props) => {
         showAlert(msg, type)
     }
 
-    const admins = ['64d0b81f79c50c30ab468a2d']
+    const admins = ['64d0b7fc79c50c30ab468a2a']
 
     const [cartCount, setcartCount] = useState(0)
     const numberofitemsincart=()=>{

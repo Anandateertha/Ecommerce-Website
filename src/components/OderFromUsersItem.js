@@ -16,7 +16,7 @@ const OderFromUsersItem = (props) => {
     const calculateTotalPrice = () => {
         let totalPrice = 0;
         listoforders.cart.forEach(item => {
-            totalPrice += item.price * item.quantity;
+            totalPrice += item.price;
         });
         return totalPrice;
     };

@@ -22,7 +22,7 @@ const Account = () => {
             month: "long",
             year: "numeric",
         };
-        console.log(inputDate)
+        
 
         return date.toLocaleString("en-IN", options);
     }

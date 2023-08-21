@@ -18,10 +18,12 @@ import OrderFromUsers from './components/OrderFromUsers';
 import Cart from './components/Cart';
 import Alert from './components/Alert';
 import Account from './components/Account';
+import ReactGA from "react-ga4";
+
+const TRACKING_ID=process.env.MEASUREMENT//Comment this line out when you are running on localhost
+ReactGA.initialize(TRACKING_ID);//Comment this line out when you are running on localhost
 
 function App() {
-
-
   return (
     <>
       <ProductState>

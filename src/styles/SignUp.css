@@ -17,18 +17,26 @@
     width: 300px;
 }
 
-@media screen and (max-width:664px) {
+@media screen and (max-width:450px) {
     .sign
     {
         display: flex;
         justify-content: center;
         align-items: center;  
         width: 644px;
-        margin-left: -134px;
+        margin-left: -194px;
     }
     .image
     {
         visibility: hidden;
         display: none;
+    }
+}
+
+@media (min-width:451px) and (max-width:990px) {
+    .sign
+    {
+        width: fit-content;
+        margin-left: -185px;
     }
 }
