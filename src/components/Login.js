@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react'
 import '../styles/Login.css'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import productContext from '../context/products/ProductContext'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+const Login = ({setLoading}) => {
     const host = 'http://localhost:5000'
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     const [creds, setcreds] = useState({
         email: "",
         password: ""
@@ -20,6 +22,7 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
+        setLoading(true);
         const response = await fetch(`${host}/api/auth/login`, {
             method: 'POST',
             headers: {
@@ -27,19 +30,24 @@ const Login = () => {
             },
             body: JSON.stringify({ email: creds.email, password: creds.password })
         })
-        const json=await response.json()
+        const json = await response.json()
 
         if (json.success) {
-            localStorage.setItem('id',json.data.user.id)
-            localStorage.setItem('token',json.authtoken)
+            localStorage.setItem('id', json.data.user.id)
+            localStorage.setItem('token', json.authtoken)
             navigate('/')
-            alertfromlogin("Login successfull","success")
+            alertfromlogin("Login successfull")
+            setLoading(false);
         }
-        else
-        {
-            alertfromlogin("Please enter valid credentials","danger")
+        else {
+            setLoading(false)
+            toast.error(`Please enter valid credentials`, {
+                position: 'top-right',
+                autoClose: 3000,
+            });
             navigate('/login')
         }
+        
     }
 
     return (

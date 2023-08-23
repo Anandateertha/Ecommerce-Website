@@ -21,11 +21,15 @@ import Account from './components/Account';
 import ReactGA from "react-ga4";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Loading from './components/Loading'
+import { useState } from 'react';
+import PrivateRoute from './components/PrivateRoute';
 
-const TRACKING_ID=process.env.MEASUREMENT//Comment this line out when you are running on localhost
+const TRACKING_ID =process.env.MEASUREMENT//Comment this line out when you are running on localhost
 ReactGA.initialize(TRACKING_ID);//Comment this line out when you are running on localhost
 
 function App() {
+  const [loading, setLoading] = useState(false);
   return (
     <>
       <ProductState>
@@ -34,17 +38,49 @@ function App() {
           <ToastContainer />
           <Alert />
           <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route exact path='/addproduct' element={<AddProduct />} />
-            <Route exact path='/deleteproduct' element={<DeleteProduct />} />
-            <Route exact path='/updateproduct' element={<UpdateProduct />} />
-            <Route exact path="/buynow/:id" element={<BuyNow />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/signup" element={<SignUp />} />
-            <Route exact path="/yourorders" element={<YourOrders />} />
-            <Route exact path="/orderfromusers" element={<OrderFromUsers />} />
-            <Route exact path="/cart" element={<Cart />} />
-            <Route exact path="/account" element={<Account />} />
+            {loading ? <Route path='/*' element={<Loading />} /> :
+              <>
+                <Route exact path='/' element={<Home />} />
+                <Route
+                  exact path="/addproduct"
+                  element={
+                    <PrivateRoute>
+                      <AddProduct />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  exact path="/deleteproduct"
+                  element={
+                    <PrivateRoute>
+                      <DeleteProduct />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  exact path="/updateproduct"
+                  element={
+                    <PrivateRoute>
+                      <UpdateProduct />
+                    </PrivateRoute>
+                  }
+                />
+                <Route
+                  exact path="/orderfromusers"
+                  element={
+                    <PrivateRoute>
+                      <OrderFromUsers />
+                    </PrivateRoute>
+                  }
+                />
+                <Route exact path="/buynow/:id" element={<BuyNow />} />
+                <Route exact path="/login" element={<Login setLoading={setLoading} />} />
+                <Route exact path="/signup" element={<SignUp setLoading={setLoading}/>} />
+                <Route exact path="/yourorders" element={<YourOrders />} />
+                <Route exact path="/cart" element={<Cart />} />
+                <Route exact path="/account" element={<Account />} />
+              </>
+            }
           </Routes>
         </Router>
       </ProductState>

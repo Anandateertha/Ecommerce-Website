@@ -3,7 +3,7 @@ import '../styles/SignUp.css'
 import { Link, useNavigate } from 'react-router-dom'
 import productContext from '../context/products/ProductContext'
 
-const SignUp = () => {
+const SignUp = ({setLoading}) => {
     const host = 'http://localhost:5000'
     const context = useContext(productContext)
     const { alertfromlogin } = context
@@ -24,6 +24,7 @@ const SignUp = () => {
 
     const handleSignUp = async (e) => {
         e.preventDefault()
+        setLoading(true)
         const response = await fetch(`${host}/api/auth/createuser`, {
             method: 'POST',
             headers: {
@@ -37,9 +38,11 @@ const SignUp = () => {
             localStorage.setItem('id',json.data.user.id)
             localStorage.setItem('token',json.authtoken)
             alertfromlogin("Successfully created your account","success")
+            setLoading(false)
         }
         else
         {
+            setLoading(false)
             alertfromlogin("Please enter valid information","danger")
             navigate('/signup')
         }
