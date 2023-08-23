@@ -9,8 +9,8 @@ const Navbar = () => {
     const navigate = useNavigate()
     const logout = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('id')
         navigate('/login')
-        // console.log(localStorage.getItem('token'))
         ReactGA.event({
             category: "Logging out",
             action: "Click",

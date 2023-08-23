@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import productContext from '../context/products/ProductContext'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Account = () => {
 
     const host = 'http://localhost:5000'
     const context = useContext(productContext)
-    const { alertfromlogin } = context
 
     const [accountdetails, setaccountdetails] = useState({
         name: "",
@@ -48,9 +49,16 @@ const Account = () => {
 
         details()
         document.title=`Hemadri's - Your Account`
-        alertfromlogin("Your Account","success")
-
     }, [])
+
+    useEffect(() => {
+        if (accountdetails.name !== "") {
+            toast.success(`Your Account`, {
+                position: 'top-right',
+                autoClose: 1000,
+            });
+        }
+    }, [accountdetails.name]);
 
     return (
         <React.Fragment>

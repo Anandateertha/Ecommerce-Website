@@ -1,4 +1,14 @@
-.space
-{
-    margin-top: 29px !important;
+@media (min-width:994px) and (max-width:1400px) {
+    .item {
+        margin-right: 65px;
+    }
+
+}
+
+@media (min-width: 765px) and (max-width: 993px) {
+    .item {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding: 5px;
+    }
 }

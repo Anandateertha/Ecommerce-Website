@@ -63,7 +63,6 @@ const ProductState = (props) => {
 
         const addedProduct = await response.json()
         setproducts(products.concat(addedProduct))
-        // showAlert("Product has been Added Successfully", "success")
         toast.success('Product has been Added Successfully', {
             position: 'top-right',
             autoClose: 5000,
@@ -85,7 +84,6 @@ const ProductState = (props) => {
             product._id !== id
         )
         setproducts(newProducts)
-        // showAlert("Product has been Deleted Successfully", "success")
         toast.success('Product has been Deleted Successfully', {
             position: 'top-right',
             autoClose: 5000,
@@ -119,7 +117,6 @@ const ProductState = (props) => {
 
         }
         setproducts(updatedProduct)
-        // showAlert("Product has been Updated Successfully", "success")
         toast.success('Product has been Updated Successfully', {
             position: 'top-right',
             autoClose: 5000,
@@ -172,7 +169,7 @@ const ProductState = (props) => {
             },
             body: JSON.stringify({ quantity })
         })
-        // showAlert("Item has been Added to the Cart", "success")
+        
         toast.success('Item has been Added to the Cart', {
             position: 'top-right',
             autoClose: 5000,
@@ -203,7 +200,6 @@ const ProductState = (props) => {
             cartitem._id !== id
         )
         setcartitems(newCart)
-        // showAlert("Item has been removed from the cart Successfully", "success")
         toast.error('Item has been removed from the cart Successfully', {
             position: 'top-right',
             autoClose: 3000,
@@ -223,8 +219,7 @@ const ProductState = (props) => {
         setlistoforders(listoforders.concat(json))
     }
 
-    const alertfromlogin = (msg, type) => {
-        // showAlert(msg, type)
+    const alertfromlogin = (msg) => {
         toast.success(`${msg}`, {
             position: 'top-right',
             autoClose: 5000,
@@ -232,6 +227,7 @@ const ProductState = (props) => {
     }
 
     const admins = ["admin Id's"]//Enter the Id of the Admin to get access to the Product Operations
+    
 
     const [cartCount, setcartCount] = useState(0)
     const numberofitemsincart=()=>{
