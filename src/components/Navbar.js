@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import productContext from '../context/products/ProductContext'
 import '../styles/Navbar.css'
 import ReactGA from "react-ga4";
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
     const location = useLocation()
@@ -19,7 +20,8 @@ const Navbar = () => {
     }
 
     const context = useContext(productContext)
-    const { getallproducts, admins, cartCount } = context
+    const { getallproducts, admins} = context
+    const cartitems=useSelector((state)=>state.cartitems.value)
 
     const handleSearch = async (e) => {
         e.preventDefault()
@@ -70,7 +72,7 @@ const Navbar = () => {
                         <form className="d-flex resp">
                             <Link className="btn btn-primary mx-2 items" type="button" to="/yourorders" style={{ width: '200px' }} role="button">Your Orders</Link>
                             <Link className={`btn btn-primary items mx-2 position-relative  ${location.pathname === '/cart' ? "d-none" : ""}`} to="/cart" role="button">Cart<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                {cartCount}
+                                {cartitems}
                                 <span className="visually-hidden">unread messages</span>
                             </span></Link>
                             <input className="form-control me-2 items" type="search" placeholder="Search" aria-label="Search" id="search" name="search" />

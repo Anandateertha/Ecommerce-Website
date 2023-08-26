@@ -1,14 +1,21 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import productContext from '../context/products/ProductContext'
+import { useDispatch } from 'react-redux'
+import { decrement } from '../redux/slices/cartitems/index'
+
 
 const CartItem = (props) => {
 
-    const {cartitem}=props
+    const { cartitem } = props
     const context = useContext(productContext)
     const { removeitemfromcart } = context
+    const dispatch = useDispatch()
 
-    const handleRemoveitemfromcart=(id)=>{
+    const handleRemoveitemfromcart = (id) => {
+        dispatch(decrement())
+        const ls = parseInt(localStorage.getItem('numberofitemsincart'))
+        localStorage.setItem('numberofitemsincart', ls - 1)
         removeitemfromcart(id)
     }
 
@@ -21,7 +28,7 @@ const CartItem = (props) => {
                     <p className="card-text">{cartitem.description.length > 60 ? `${cartitem.description.slice(0, 60)}...` : cartitem.title}</p>
                     <p className="card-text">Quantity : {cartitem.quantity}</p>
                     <p className="card-text">Total Price : ₹{cartitem.price}</p>
-                    <Link to={`/cart`} onClick={()=>handleRemoveitemfromcart(cartitem._id)} className="btn btn-primary my-1 mx-2">Remove Item from the Cart</Link>
+                    <Link to={`/cart`} onClick={() => handleRemoveitemfromcart(cartitem._id)} className="btn btn-primary my-1 mx-2">Remove Item from the Cart</Link>
                 </div>
             </div>
         </div>

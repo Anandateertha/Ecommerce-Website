@@ -5,13 +5,16 @@ import '../styles/BuyNow.css';
 import ReactGA from "react-ga4";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { increment } from '../redux/slices/cartitems/index'
+import { useDispatch, useSelector } from 'react-redux';
 
 const BuyNow = () => {
     const host = 'http://localhost:5000'
     const { id } = useParams();
     const navigate = useNavigate()
     const context = useContext(productContext)
-    const { userOrders, addingitemtocart, alertfromlogin } = context
+    const { userOrders, addingitemtocart } = context
+    const dispatch = useDispatch()
 
     const [fetchedProduct, setfetchedProduct] = useState({
         title: "",
@@ -90,7 +93,6 @@ const BuyNow = () => {
                     const json = await responses.json()
                     if (json.success) {
                         userOrders(id, q);
-                        // alertfromlogin("Payment Successfull and Your Order is placed", "success")
                         toast.success('Payment Successfull and Your Order is placed', {
                             position: 'top-right',
                             autoClose: 5000,
@@ -103,8 +105,7 @@ const BuyNow = () => {
                         });
                         navigate('/')
                     }
-                    else
-                    {
+                    else {
                         toast.error('Payment UnSuccessfull', {
                             position: 'top-right',
                             autoClose: 5000,
@@ -156,6 +157,9 @@ const BuyNow = () => {
     const handleCart = (id) => {
         if (q >= 1) {
             addingitemtocart(id, q)
+            dispatch(increment())
+            const ls = parseInt(localStorage.getItem('numberofitemsincart'))
+            localStorage.setItem('numberofitemsincart', ls + 1)
             navigate('/')
         }
         else {

@@ -65,7 +65,7 @@ const ProductState = (props) => {
         setproducts(products.concat(addedProduct))
         toast.success('Product has been Added Successfully', {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 3000,
         });
     }
 
@@ -86,7 +86,7 @@ const ProductState = (props) => {
         setproducts(newProducts)
         toast.success('Product has been Deleted Successfully', {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 3000,
         });
     }
 
@@ -104,7 +104,7 @@ const ProductState = (props) => {
 
         const updatedProduct = JSON.parse(JSON.stringify(products))
 
-        //Logic to edit in client
+        
         for (let index = 0; index < updatedProduct.length; index++) {
             const element = updatedProduct[index];
             if (element._id === id) {
@@ -172,7 +172,7 @@ const ProductState = (props) => {
         
         toast.success('Item has been Added to the Cart', {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 3000,
         });
     }
 
@@ -222,11 +222,12 @@ const ProductState = (props) => {
     const alertfromlogin = (msg) => {
         toast.success(`${msg}`, {
             position: 'top-right',
-            autoClose: 5000,
+            autoClose: 3000,
         });
     }
 
-    const admins = ["admin Id's"]//Enter the Id of the Admin to get access to the Product Operations
+    // const admins = ["admin Id's"]//Enter the Id of the Admin to get access to the Product Operations
+    
     
 
     const [cartCount, setcartCount] = useState(0)

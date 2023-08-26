@@ -2,8 +2,28 @@ import React from 'react'
 import Products from './Products'
 import '../styles/Home.css'
 import Footer from './Footer';
+import { useEffect } from 'react';
 
 const Home = () => {
+
+    const host = 'http://localhost:5000'
+
+    useEffect(() => {
+
+        const itemsinthecart = async () => {
+            const response = await fetch(`${host}/api/orderproduct/itemsincart`, {
+                method: "GET",
+                headers: {
+                    "auth-token": localStorage.getItem('token')
+                }
+            })
+
+            const json = await response.json()
+            localStorage.setItem('numberofitemsincart', json.length)
+        }
+        itemsinthecart()
+    }, [])
+
     return (
         <>
             <div className='back font'>
