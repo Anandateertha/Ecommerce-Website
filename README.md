@@ -1,70 +1,13 @@
-# Getting Started with Create React App
+![Screenshot 2023-08-27 152215](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/01af344f-cc6c-416d-ab98-3be49f8501ea)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot 2023-08-27 152404](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/60f4798c-0cdd-4a16-ba91-883c3419019e)
 
-## Available Scripts
+![Screenshot 2023-08-27 152507](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/78ba068f-0b4f-4131-a7ae-c517abb33dfb)
 
-In the project directory, you can run:
+![Screenshot 2023-08-27 152728](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/aeebff5d-a0c3-427f-a4f9-9d9de5e80e29)
 
-### `npm start`
+![Screenshot 2023-08-27 152813](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/63206b45-014d-43e5-b11b-745af4db9b6d)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![Screenshot 2023-08-27 152909](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/893372c7-0412-414a-855e-4da4dcbacc9f)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![1234](https://github.com/Anandateertha/Ecommerce-Website/assets/131521505/d30ab3cf-099a-4a8e-87c4-ca6f3d23a5fc)
