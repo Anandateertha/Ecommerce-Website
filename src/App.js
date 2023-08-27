@@ -25,7 +25,7 @@ import Loading from './components/Loading'
 import { useState } from 'react';
 import PrivateRoute from './components/PrivateRoute';
 
-const TRACKING_ID =process.env.MEASUREMENT//Comment this line out when you are running on localhost
+const TRACKING_ID = process.env.MEASUREMENT//Comment this line out when you are running on localhost
 ReactGA.initialize(TRACKING_ID);//Comment this line out when you are running on localhost
 
 function App() {
@@ -75,7 +75,7 @@ function App() {
                 />
                 <Route exact path="/buynow/:id" element={<BuyNow />} />
                 <Route exact path="/login" element={<Login setLoading={setLoading} />} />
-                <Route exact path="/signup" element={<SignUp setLoading={setLoading}/>} />
+                <Route exact path="/signup" element={<SignUp setLoading={setLoading} />} />
                 <Route exact path="/yourorders" element={<YourOrders />} />
                 <Route exact path="/cart" element={<Cart />} />
                 <Route exact path="/account" element={<Account />} />
