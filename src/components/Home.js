@@ -3,25 +3,15 @@ import Products from './Products'
 import '../styles/Home.css'
 import Footer from './Footer';
 import { useEffect } from 'react';
+import {cartItemfetch} from '../redux/slices/cartitems/index'
+import { useDispatch } from 'react-redux';
 
 const Home = () => {
 
-    const host = 'http://localhost:5000'
+    const dispatch=useDispatch()
 
     useEffect(() => {
-
-        const itemsinthecart = async () => {
-            const response = await fetch(`${host}/api/orderproduct/itemsincart`, {
-                method: "GET",
-                headers: {
-                    "auth-token": localStorage.getItem('token')
-                }
-            })
-
-            const json = await response.json()
-            localStorage.setItem('numberofitemsincart', json.length)
-        }
-        itemsinthecart()
+        dispatch(cartItemfetch())
     }, [])
 
     return (

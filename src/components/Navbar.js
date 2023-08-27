@@ -21,7 +21,7 @@ const Navbar = () => {
 
     const context = useContext(productContext)
     const { getallproducts, admins} = context
-    const cartitems=useSelector((state)=>state.cartitems.value)
+    const cartitems=useSelector((state)=>state.cartitems.cartnumber)
 
     const handleSearch = async (e) => {
         e.preventDefault()

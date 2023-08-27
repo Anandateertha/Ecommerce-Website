@@ -14,8 +14,6 @@ const CartItem = (props) => {
 
     const handleRemoveitemfromcart = (id) => {
         dispatch(decrement())
-        const ls = parseInt(localStorage.getItem('numberofitemsincart'))
-        localStorage.setItem('numberofitemsincart', ls - 1)
         removeitemfromcart(id)
     }
 

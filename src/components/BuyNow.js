@@ -158,8 +158,6 @@ const BuyNow = () => {
         if (q >= 1) {
             addingitemtocart(id, q)
             dispatch(increment())
-            const ls = parseInt(localStorage.getItem('numberofitemsincart'))
-            localStorage.setItem('numberofitemsincart', ls + 1)
             navigate('/')
         }
         else {
