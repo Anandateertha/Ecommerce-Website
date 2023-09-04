@@ -4,7 +4,6 @@ const router = express.Router()
 const fetchuser = require('../middleware/fetchuser');
 const User = require('../models/User');
 const Products = require('../models/Products');
-const { useState } = require('react');
 
 //ROUTE 1 : Adding a Item by the User using POST :'/api/orderproduct/orderproduct
 
@@ -84,8 +83,7 @@ router.post('/orderfromcart', fetchuser, async (req, res) => {
         let phone = userDetails.phone
         let address = userDetails.address
 
-        let cart = await CartItem.find()
-        console.log(cart)
+        let cart = await CartItem.find({id:id})
 
         let orderCart = new Userordered({
             id, name, phone, address, cart

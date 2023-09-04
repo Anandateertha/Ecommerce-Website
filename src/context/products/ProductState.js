@@ -226,7 +226,7 @@ const ProductState = (props) => {
         });
     }
 
-    // const admins = ["admin Id's"]//Enter the Id of the Admin to get access to the Product Operations
+    const admins = ["admin Id's"]//Enter the Id of the Admin to get access to the Product Operations
     
     
 
